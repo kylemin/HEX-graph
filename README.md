@@ -58,6 +58,9 @@ According to the paper, Top 1 accuracy of softmax-all should be less than that o
 | 95%  | 65.84% (72.69%) | 65.87% (72.71%) | 63.91% (70.43%) |
 | 99%  | 28.23% (54.10%) | 28.38% (54.13%) | 35.17% (45.82%) |
 
+Since the HEX model of the paper is based on AlexNet, direct comparison of the performance is not possible. Also, the paper seems to have tested the model from scratch, but here the extracted output data of fc7 layer is used. Plus, this test utilizes WordNet hierarchy of 860 internal nodes, while the paper uses that of 820.
+However, when it comes to the gain of accuracy compared to Softmax-all, it has the very similar trend with the paper's. This makes my code quite reasonable.
+
 ### On the cifar-100 dataset (from scratch)
 For cifar-100 dataset, hex model gives much better result than softmax-all in every case. We can see that accuracy of HEX-all is higher than hex, while soft accuracy is lower. Unlike the case of imagenet-2012 dataset, the performances of HEX and HEX-all are better than Softmax-all in all cases, even in the case of relabelling 99%.
 
@@ -81,4 +84,4 @@ For cifar-100 dataset, hex model gives much better result than softmax-all in ev
 Performances of hex and hex-all on the novel categories are worse than softmax-all. The main difference of hex-all and softmax-all is that softmax-all on relabeled data always tends to indicate inner-class, so the predicted labels should be confined to leaf-classes (1~1000). If the predicted labels are not confined to leaf nodes, accuracy goes to 0. However, hex and hex-all don't depend on such constraint. Therefore, if test dataset doesn't contain a lot of novel category data, hex and hex-all should be better than softmax-all.
 
 ## Comment
-By the above examinations, it is proved that HEX and HEX-all models can perform better than softmax in most relabelling cases, as argued in the original paper. However, HEX model cannot predict novel categories better than softmax. This is also the case for the HEX-all model. It seems that the inner nodes, or super categories, can help HEX and HEX-all models predict better only the leaf categories. Therefore, HEX models are not suitable for zero-shot inference.
+By the above examinations, it is proved that HEX and HEX-all models can perform better than softmax in most relabelling cases, as argued in the original paper. However, HEX model cannot predict novel categories better than softmax. This is also the case for the HEX-all model. It seems that the inner nodes, or super categories, can help HEX and HEX-all models predict better only the leaf categories. Therefore, HEX models are not suitable for zero-shot inference. Even if this is not exactly the replication of the original paper, the result is quite reasonalbe. The differences with the paper are 1) this is on top of 16-layer VGGNet, while the paper is on AlexNet, 2) extracted output data of fc7 layer is used, while the paper seems to have tested the model from scratch, 3) the number of hierarchy of WordNet (here: 860, paper: 820). However, when it comes to the gain of accuracy compared to Softmax-all, it has the very similar trend with the paper's.
