@@ -62,7 +62,7 @@ Since the HEX model of the paper is based on AlexNet, direct comparison of the p
 However, when it comes to the gain of accuracy compared to Softmax-all, it has the very similar trend with the paper's. This makes my code quite reasonable.
 
 ### On the cifar-100 dataset (from scratch)
-For cifar-100 dataset, hex model gives much better result than softmax-all in every case. We can see that accuracy of HEX-all is higher than hex, while soft accuracy is lower. Unlike the case of imagenet-2012 dataset, the performances of HEX and HEX-all are better than Softmax-all in all cases, even in the case of relabelling 99%.
+For cifar-100 dataset, hex model gives much better result than softmax-all in every case. We can see that accuracy of HEX-all is higher than hex, while soft accuracy is lower. Unlike the case of imagenet-2012 dataset, the performances of HEX and HEX-all are better than Softmax-all in all cases, even in the case of relabelling 99%. Unlike the above test, this result is from scratch. This result shows that this implementation is reasonable.
 
 | Relabelling  | HEX | HEX-all | Softmax-all |
 | - | - | - | - |
