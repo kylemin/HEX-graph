@@ -1,5 +1,5 @@
 # HEX graph: Hierarchy and Exclusion graph #
-This code implements the HEX graph described in the paper of Large-Scale Object Classification using Label Relation Graphs, in ECCV 2014. This code is based on the code of Ronghang Hu's repository on hex-graph, and is written in MATLAB.
+This code implements the HEX graph described in the paper of Large-Scale Object Classification using Label Relation Graphs, in ECCV 2014. This code is based on the code of [Ronghang Hu's repository on hex-graph](https://github.com/ronghanghu/hex_graph), and is written in MATLAB. Compared to his original code, there are two main modifications, such as 1) Four missing parts were implemented (consistency checking, sparsify, densify, minimal fill algorithms and 2) Develop message table to boost the speed of message passing (which is the bottleneck of whole algorithm). In addition, there are some minor modifications to improve the speed.
 
 ## Code structure ##
 There are basically two classes in this code, which are hexGraph and hexClassifier. hexGraph makes the HEX structure based on the information of hierarchy and exclusion, and hexClassifier inferences based on the HEX graph and the data.
